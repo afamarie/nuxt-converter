@@ -1,9 +1,22 @@
 <template>
   <fieldset class="currency-input">
-    <UInput v-model="model.amount" type="number" aria-label="Currency Amount Field" min="0" step="0.01"
-      @keydown="blockInvalidKeys" @input="handleInput" @update:modelValue="emit('input')" />
-    <USelect v-model="model.currency" :items="CURRENCIES" aria-label="Currency Type"
-      @update:modelValue="emit('updated')" />
+    <UInput
+      v-model="model.amount"
+      type="number"
+      aria-label="Currency Amount Field"
+      min="0"
+      step="0.01"
+      @keydown="blockInvalidKeys"
+      @input="handleInput"
+      @update:modelValue="emit('input')"
+    />
+    <USelect
+      v-model="model.currency"
+      :items="CURRENCIES"
+      aria-label="Currency Type"
+      :ui="{ base: 'uppercase', itemLabel: 'uppercase' }"
+      @update:modelValue="emit('select')"
+    />
   </fieldset>
 </template>
 
@@ -17,24 +30,32 @@ const model = defineModel<{
 
 const emit = defineEmits<{
   (e: "input"): void;
-  (e: "updated"): void;
+  (e: "select"): void;
 }>();
 
 const blockInvalidKeys = (event: KeyboardEvent) => {
-  const invalidChars = ['e', 'E', '+', '-', ',']
+  const invalidChars = ["e", "E", "+", "-", ","];
   if (invalidChars.includes(event.key)) {
-    event.preventDefault()
+    event.preventDefault();
   }
-}
+};
 
 const handleInput = (event: Event) => {
-  const target = event.target as HTMLInputElement
-  const value = target.value
+  const target = event.target as HTMLInputElement;
+  const value = target.value;
 
-  const valid = /^\d*\.?\d{0,2}$/.test(value)
+  const valid = /^\d*\.?\d{0,2}$/.test(value);
 
   if (!valid) {
-    target.value = '0'
+    target.value = "0";
   }
-}
+};
 </script>
+
+<style scoped lang="scss">
+.currency-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+</style>

@@ -2,15 +2,8 @@
   <div class="index-page">
     <section>
       <h1>Курсы валют</h1>
-      <div v-if="store.loading">
-        Загрузка курсов валют...
-      </div>
-      <div v-else-if="store.error">
-        <p>{{ store.error }}</p>
-        <UButton @click="store.fetchRates">Попробовать снова</UButton>
-      </div>
-
-      <ul v-else>
+      <CurrencyLoader />
+      <ul v-if="store.rates">
         <li v-for="(currency, i) in currencies" :key="i">
           <div>
             1 {{ currency }} = {{ store.getRate(currency, store.baseCurrency) }} {{ store.baseCurrency }}
@@ -29,3 +22,33 @@ const currencies = computed<string[]>(() => {
 })
 
 </script>
+
+<style scoped lang="scss">
+.index-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+
+    font-weight: bolder;
+  }
+
+  ul {
+    font-size: 1.2rem;
+    line-height: 1.5;
+
+    text-transform: uppercase;
+
+    li {
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+  }
+}
+</style>

@@ -10,7 +10,7 @@ type Rates = {
 export const useConverterStore = defineStore("converter", () => {
   const CURRENCIES: CurrencyCode[] = ["rub", "usd", "eur"];
   const baseCurrency = ref<string>("rub");
-  const rates = ref<Rates>({});
+  const rates = ref<Rates>();
   const loading = ref<boolean>(false);
   const error = ref<string | null>(null);
 
@@ -31,6 +31,7 @@ export const useConverterStore = defineStore("converter", () => {
   };
 
   const getRate = (from: CurrencyCode, to: CurrencyCode): number => {
+    if (!rates.value) return 1;
     const rateKey: RatePair = `${from}-${to}`;
     return Number(rates.value[rateKey]?.toFixed(2)) || 1;
   };
@@ -40,6 +41,7 @@ export const useConverterStore = defineStore("converter", () => {
     to: CurrencyCode,
     amount: number
   ): number => {
+    if (!rates.value) return amount;
     const rateKey: RatePair = `${from}-${to}`;
     const rate = rates.value[rateKey] || 1;
     return Number((amount * rate).toFixed(2));
