@@ -1,3 +1,12 @@
+# Конвертер валют 💲
+
+## Vue3, Nuxt, Pinia, TypeScript
+
+## Описание
+
+* 3 валюты: USD, EUR, RUB
+* проверяет инпут и не дает вводить текст и отрицательные значения
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
