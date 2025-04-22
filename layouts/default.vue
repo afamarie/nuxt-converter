@@ -1,10 +1,10 @@
 <template>
-   <NuxtLoadingIndicator />
+  <NuxtLoadingIndicator />
   <div class="default-layout">
     <AppHeader />
-    <main>
+    <UContainer as="main">
       <slot />
-    </main>
+    </UContainer>
   </div>
 </template>
 
@@ -12,13 +12,5 @@
 .default-layout {
   display: flex;
   flex-direction: column;
-
-  main {
-    padding: 1.2rem;
-    margin: 0 auto;
-    flex: 1;
-
-    max-width: 1040px;
-  }
 }
 </style>

@@ -1,17 +1,18 @@
 <template>
   <header class="app-header">
-    <div class="container">
+    <UContainer class="container">
       <nav>
-        <ULink to="/">Главная</ULink>
-        <ULink to="/convert">Конвертация</ULink>
+        <ULink :to="{name: 'index'}">Главная</ULink>
+        <ULink :to="{name: 'convert'}">Конвертация</ULink>
       </nav>
       <USelect
         v-model="store.baseCurrency"
         :items="store.CURRENCIES"
         variant="subtle"
+        aria-label="Choose base currency"
         :ui="{ base: 'uppercase', itemLabel: 'uppercase' }"
       />
-    </div>
+    </UContainer>
   </header>
 </template>
 
@@ -21,21 +22,13 @@ const store = useConverterStore();
 
 <style scoped>
 .app-header {
-  background-color: #f8f9fa;
 
   .container {
     display: flex;
-    flex-wrap: wrap;
-
-    gap: 1.2rem;
-
-    padding: 1.2rem;
-    margin: 0 auto;
     justify-content: space-between;
-    align-items: center;
-    flex: 1;
 
-    max-width: 1040px;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
   }
 
   nav {

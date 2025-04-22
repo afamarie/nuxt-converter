@@ -15,9 +15,11 @@
 </template>
 
 <script setup lang="ts">
+import type { CurrencyCode } from "@/types"
+
 const store = useConverterStore()
 
-const currencies = computed<string[]>(() => {
+const currencies = computed<CurrencyCode[]>(() => {
   return store.CURRENCIES.filter((currency) => currency !== store.baseCurrency)
 })
 

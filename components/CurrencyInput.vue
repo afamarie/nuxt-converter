@@ -21,12 +21,16 @@
 </template>
 
 <script setup lang="ts">
-const { CURRENCIES } = useConverterStore();
+import type { CurrencyCode } from "@/types";
 
+const { CURRENCIES } = useConverterStore();
 const model = defineModel<{
   amount: number;
-  currency: string;
-}>();
+  currency: CurrencyCode;
+}>({
+  amount: 0,
+  currency: "rub",
+});
 
 const emit = defineEmits<{
   (e: "input"): void;

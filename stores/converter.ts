@@ -1,15 +1,8 @@
-import { defineStore } from "pinia";
-
-type CurrencyCode = "rub" | "usd" | "eur";
-type RatePair = `${CurrencyCode}-${CurrencyCode}`;
-
-type Rates = {
-  [key in RatePair]?: number;
-};
+import type { CurrencyCode, RatePair, Rates } from "@/types/index";
 
 export const useConverterStore = defineStore("converter", () => {
   const CURRENCIES: CurrencyCode[] = ["rub", "usd", "eur"];
-  const baseCurrency = ref<string>("rub");
+  const baseCurrency = ref<CurrencyCode>("rub");
   const rates = ref<Rates>();
   const loading = ref<boolean>(false);
   const error = ref<string | null>(null);
