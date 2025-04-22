@@ -4,7 +4,7 @@
   </NuxtLayout>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .page-enter-active,
 .page-leave-active {
   transition: all .5s ease-in;
