@@ -1,6 +1,6 @@
 <template>
-  <NuxtLoadingIndicator />
   <div class="default-layout">
+    <NuxtLoadingIndicator />
     <AppHeader />
     <UContainer as="main">
       <slot />

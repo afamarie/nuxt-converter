@@ -4,18 +4,18 @@
       v-model="amount"
       type="number"
       aria-label="Currency Amount Field"
-      min="0"
+      min=0
       step="0.01"
       @keydown="blockInvalidKeys"
       @input="handleInput"
-      @update:modelValue="emit('input')"
+      @update:model-value="emit('input')"
     />
     <USelect
       v-model="currency"
       :items="CURRENCIES"
       aria-label="Currency Type"
       :ui="{ base: 'uppercase', itemLabel: 'uppercase' }"
-      @update:modelValue="emit('select')"
+      @update:model-value="emit('select')"
     />
   </fieldset>
 </template>
@@ -28,8 +28,7 @@ const amount = defineModel<number>("amount");
 const currency = defineModel<CurrencyCode>("currency");
 
 const emit = defineEmits<{
-  (e: "input"): void;
-  (e: "select"): void;
+  (e: "input" | "select"): void;
 }>();
 
 const blockInvalidKeys = (event: KeyboardEvent) => {

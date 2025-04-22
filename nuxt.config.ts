@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   components: true,
-  modules: ["@nuxt/ui", "@pinia/nuxt"],
+  modules: ["@nuxt/ui", "@pinia/nuxt", "@nuxt/eslint"],
   css: ["~/assets/style/main.css"],
   app: {
     baseURL: "/nuxt-converter/",
