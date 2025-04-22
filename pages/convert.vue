@@ -3,8 +3,8 @@
     <h1>Конвертация валют</h1>
     <CurrencyLoader />
     <div v-if="store.rates">
-      <CurrencyInput v-model="from" @input="convertFromFirst" @select="convertFromFirst"/>
-      <CurrencyInput v-model="to" @input="convertFromSecond" @select="convertFromFirst"/>
+      <CurrencyInput v-model:amount="from.amount" v-model:currency="from.currency" @input="convertFromFirst" @select="convertFromFirst"/>
+      <CurrencyInput v-model:amount="to.amount" v-model:currency="to.currency" @input="convertFromSecond" @select="convertFromFirst"/>
     </div>
   </section>
 </template>

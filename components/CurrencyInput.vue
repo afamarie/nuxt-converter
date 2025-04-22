@@ -1,7 +1,7 @@
 <template>
   <fieldset class="currency-input">
     <UInput
-      v-model="model.amount"
+      v-model="amount"
       type="number"
       aria-label="Currency Amount Field"
       min="0"
@@ -11,7 +11,7 @@
       @update:modelValue="emit('input')"
     />
     <USelect
-      v-model="model.currency"
+      v-model="currency"
       :items="CURRENCIES"
       aria-label="Currency Type"
       :ui="{ base: 'uppercase', itemLabel: 'uppercase' }"
@@ -24,13 +24,8 @@
 import type { CurrencyCode } from "@/types";
 
 const { CURRENCIES } = useConverterStore();
-const model = defineModel<{
-  amount: number;
-  currency: CurrencyCode;
-}>({
-  amount: 0,
-  currency: "rub",
-});
+const amount = defineModel<number>("amount");
+const currency = defineModel<CurrencyCode>("currency");
 
 const emit = defineEmits<{
   (e: "input"): void;
