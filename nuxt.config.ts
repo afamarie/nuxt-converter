@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui", "@pinia/nuxt"],
   css: ["~/assets/style/main.css"],
   app: {
+    baseURL: "/nuxt-converter/",
     head: {
       title: "Конвертер валют",
       meta: [{ name: "description", content: "Простой конвертер валют" }],
@@ -14,8 +15,8 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
     pageTransition: {
-      name: 'page',
-      mode: 'out-in'
-    }
+      name: "page",
+      mode: "out-in",
+    },
   },
 });
