@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-converter",
   "private": true,
   "type": "module",
   "scripts": {
@@ -23,5 +23,6 @@
   "devDependencies": {
     "typescript": "^5.8.3",
     "vue-tsc": "^2.2.8"
-  }
+  },
+  "homepage": "https://afamarie.github.io/nuxt-converter/"
 }
