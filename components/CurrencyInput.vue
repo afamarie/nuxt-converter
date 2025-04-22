@@ -42,7 +42,7 @@ const handleInput = (event: Event) => {
   const target = event.target as HTMLInputElement
   const value = target.value
 
-  const valid = /^\d*\.?\d{0,2}$/.test(value)
+  const valid = /^\d*\.?\d/.test(value)
 
   if (!valid) {
     target.value = '0'
