@@ -3,15 +3,27 @@
     <h1>Конвертация валют</h1>
     <CurrencyLoader />
     <div v-if="store.rates">
-      <CurrencyInput v-model:amount="from.amount" v-model:currency="from.currency" @input="convertFromFirst" @select="convertFromFirst"/>
-      <CurrencyInput v-model:amount="to.amount" v-model:currency="to.currency" @input="convertFromSecond" @select="convertFromFirst"/>
+      <CurrencyInput
+        v-model:amount="from.amount"
+        v-model:currency="from.currency"
+        @input="convertFromFirst"
+        @select="convertFromFirst"
+      />
+      <CurrencyInput
+        v-model:amount="to.amount"
+        v-model:currency="to.currency"
+        @input="convertFromSecond"
+        @select="convertFromFirst"
+      />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 const store = useConverterStore()
-const startTo = store.CURRENCIES.find((currency) => currency !== store.baseCurrency) || store.CURRENCIES[0]
+const startTo
+  = store.CURRENCIES.find(currency => currency !== store.baseCurrency)
+    || store.CURRENCIES[0]
 const from = reactive({ currency: store.baseCurrency, amount: 0 })
 const to = reactive({ currency: startTo, amount: 0 })
 

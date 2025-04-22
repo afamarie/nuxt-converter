@@ -4,7 +4,7 @@
       v-model="amount"
       type="number"
       aria-label="Currency Amount Field"
-      min=0
+      min="0"
       step="0.01"
       @keydown="blockInvalidKeys"
       @input="handleInput"
@@ -21,33 +21,33 @@
 </template>
 
 <script setup lang="ts">
-import type { CurrencyCode } from "@/types";
+import type { CurrencyCode } from '@/types'
 
-const { CURRENCIES } = useConverterStore();
-const amount = defineModel<number>("amount");
-const currency = defineModel<CurrencyCode>("currency");
+const { CURRENCIES } = useConverterStore()
+const amount = defineModel<number>('amount')
+const currency = defineModel<CurrencyCode>('currency')
 
 const emit = defineEmits<{
-  (e: "input" | "select"): void;
-}>();
+  (e: 'input' | 'select'): void
+}>()
 
 const blockInvalidKeys = (event: KeyboardEvent) => {
-  const invalidChars = ["e", "E", "+", "-", ","];
+  const invalidChars = ['e', 'E', '+', '-', ',']
   if (invalidChars.includes(event.key)) {
-    event.preventDefault();
+    event.preventDefault()
   }
-};
+}
 
 const handleInput = (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  const value = target.value;
+  const target = event.target as HTMLInputElement
+  const value = target.value
 
-  const valid = /^\d*\.?\d{0,2}$/.test(value);
+  const valid = /^\d*\.?\d{0,2}$/.test(value)
 
   if (!valid) {
-    target.value = "0";
+    target.value = '0'
   }
-};
+}
 </script>
 
 <style scoped>

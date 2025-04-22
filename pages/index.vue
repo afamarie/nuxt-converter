@@ -4,9 +4,14 @@
       <h1>Курсы валют</h1>
       <CurrencyLoader />
       <ul v-if="store.rates">
-        <li v-for="(currency, i) in currencies" :key="i">
+        <li
+          v-for="(currency, i) in currencies"
+          :key="i"
+        >
           <div>
-            1 {{ currency }} = {{ store.getRate(currency, store.baseCurrency) }} {{ store.baseCurrency }}
+            1 {{ currency }} =
+            {{ store.getRate(currency, store.baseCurrency) }}
+            {{ store.baseCurrency }}
           </div>
         </li>
       </ul>
@@ -15,14 +20,13 @@
 </template>
 
 <script setup lang="ts">
-import type { CurrencyCode } from "@/types"
+import type { CurrencyCode } from '@/types'
 
 const store = useConverterStore()
 
 const currencies = computed<CurrencyCode[]>(() => {
-  return store.CURRENCIES.filter((currency) => currency !== store.baseCurrency)
+  return store.CURRENCIES.filter(currency => currency !== store.baseCurrency)
 })
-
 </script>
 
 <style scoped>

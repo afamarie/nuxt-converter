@@ -1,15 +1,22 @@
 <template>
   <div class="currency-loader">
-    <p v-if="store.loading">Загрузка курсов валют...</p>
+    <p v-if="store.loading">
+      Загрузка курсов валют...
+    </p>
     <div v-else-if="store.error">
       <p>{{ store.error }}</p>
-      <UButton variant="soft" @click="store.fetchRates">Попробовать снова</UButton>
+      <UButton
+        variant="soft"
+        @click="store.fetchRates"
+      >
+        Попробовать снова
+      </UButton>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const store = useConverterStore();
+const store = useConverterStore()
 </script>
 
 <style scoped>

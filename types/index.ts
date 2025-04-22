@@ -1,8 +1,8 @@
-type CurrencyCode = "rub" | "usd" | "eur";
-type RatePair = `${CurrencyCode}-${CurrencyCode}`;
+type CurrencyCode = 'rub' | 'usd' | 'eur'
+type RatePair = `${CurrencyCode}-${CurrencyCode}`
 
 type Rates = {
   [key in RatePair]?: number;
-};
+}
 
-export type { CurrencyCode, RatePair, Rates };
+export type { CurrencyCode, RatePair, Rates }

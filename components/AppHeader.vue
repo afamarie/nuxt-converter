@@ -2,8 +2,8 @@
   <header class="app-header">
     <UContainer class="container">
       <nav>
-        <ULink :to="{name: 'index'}">Главная</ULink>
-        <ULink :to="{name: 'convert'}">Конвертация</ULink>
+        <ULink :to="{ name: 'index' }">Главная</ULink>
+        <ULink :to="{ name: 'convert' }">Конвертация</ULink>
       </nav>
       <USelect
         v-model="store.baseCurrency"
@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-const store = useConverterStore();
+const store = useConverterStore()
 </script>
 
 <style scoped>
