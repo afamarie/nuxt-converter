@@ -52,7 +52,7 @@ const handleInput = (event: Event) => {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .currency-input {
   display: flex;
   align-items: center;

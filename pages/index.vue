@@ -23,7 +23,7 @@ const currencies = computed<string[]>(() => {
 
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .index-page {
   display: flex;
   flex-direction: column;

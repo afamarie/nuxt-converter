@@ -19,7 +19,7 @@
 const store = useConverterStore();
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .app-header {
   background-color: #f8f9fa;
 

@@ -1,4 +1,5 @@
 <template>
+   <NuxtLoadingIndicator />
   <div class="default-layout">
     <AppHeader />
     <main>
@@ -7,7 +8,7 @@
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .default-layout {
   display: flex;
   flex-direction: column;

@@ -24,7 +24,7 @@ const convertFromSecond = () => {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .convert-page {
   display: flex;
   flex-direction: column;

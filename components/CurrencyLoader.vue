@@ -12,7 +12,7 @@
 const store = useConverterStore();
 </script>
 
-<style scoled lang="scss">
+<style scoped>
 .currency-loader {
   text-align: center;
 
